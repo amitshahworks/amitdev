@@ -1,0 +1,216 @@
+.capabilities {
+  padding: clamp(5rem, 8vw, 7rem) 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.capabilities__header {
+  max-width: 54rem;
+  margin-bottom: var(--space-10);
+}
+
+.capabilities__eyebrow {
+  margin: 0 0 var(--space-4);
+  color: var(--color-accent);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.capabilities__title {
+  max-width: 48rem;
+  margin: 0;
+  color: var(--color-text);
+  font-size: clamp(2.6rem, 4.7vw, 4.25rem);
+  line-height: 1.04;
+  letter-spacing: -0.05em;
+}
+
+.capabilities__description {
+  max-width: 44rem;
+  margin: var(--space-5) 0 0;
+  color: var(--color-text-muted);
+  font-size: var(--text-lg);
+  line-height: 1.7;
+}
+
+.capabilities__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: var(--space-5);
+}
+
+/* --------------------------------------------------
+   Capability Card
+-------------------------------------------------- */
+
+.capability-card {
+  position: relative;
+  min-width: 0;
+  padding: 1.55rem;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(139, 92, 246, 0.04),
+      transparent 46%
+    ),
+    var(--color-surface);
+  transition:
+    border-color var(--transition-base),
+    box-shadow var(--transition-base),
+    transform var(--transition-base);
+}
+
+.capability-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--color-accent),
+    transparent 72%
+  );
+  opacity: 0.4;
+  transition: opacity var(--transition-base);
+}
+
+.capability-card:hover {
+  border-color: rgba(139, 92, 246, 0.42);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+
+.capability-card:hover::before {
+  opacity: 1;
+}
+
+.capability-card__number {
+  display: block;
+  margin-bottom: var(--space-4);
+  color: var(--color-accent-strong);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.capability-card__title {
+  margin: 0;
+  color: var(--color-text);
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+}
+
+.capability-card__description {
+  margin: var(--space-3) 0 0;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+}
+
+.capability-card__technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: var(--space-4) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.capability-card__technologies li {
+  padding: 0.32rem 0.58rem;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: var(--radius-pill);
+  background: rgba(139, 92, 246, 0.025);
+  color: var(--color-text-muted);
+  font-size: 0.7rem;
+  line-height: 1.3;
+  transition:
+    border-color var(--transition-fast),
+    background-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.capability-card:hover .capability-card__technologies li {
+  border-color: rgba(139, 92, 246, 0.28);
+  background: rgba(139, 92, 246, 0.06);
+  color: var(--color-text);
+}
+
+/* --------------------------------------------------
+   Tablet
+-------------------------------------------------- */
+
+@media (max-width: 68rem) {
+  .capabilities__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* --------------------------------------------------
+   Mobile
+-------------------------------------------------- */
+
+@media (max-width: 48rem) {
+  .capabilities {
+    padding: var(--space-20) 0;
+  }
+
+  .capabilities__header {
+    margin-bottom: var(--space-10);
+  }
+
+  .capabilities__title {
+    max-width: none;
+    font-size: clamp(2.5rem, 11vw, 3.75rem);
+  }
+
+  .capabilities__description {
+    font-size: var(--text-base);
+  }
+
+  .capabilities__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .capability-card {
+    padding: var(--space-5);
+  }
+}
+
+@media (max-width: 30rem) {
+  .capability-card {
+    padding: 1.15rem;
+  }
+
+  .capability-card__technologies {
+    gap: 0.35rem;
+  }
+
+  .capability-card__technologies li {
+    padding: 0.3rem 0.5rem;
+  }
+}
+
+/* --------------------------------------------------
+   Reduced Motion
+-------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .capability-card,
+  .capability-card::before,
+  .capability-card__technologies li {
+    transition: none;
+  }
+
+  .capability-card:hover {
+    transform: none;
+  }
+}

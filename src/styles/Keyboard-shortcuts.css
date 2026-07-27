@@ -1,0 +1,268 @@
+/* --------------------------------------------------
+   Overlay
+-------------------------------------------------- */
+
+.keyboard-shortcuts__overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  display: grid;
+  place-items: center;
+  padding: var(--space-4);
+  background: rgba(2, 6, 23, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  animation: shortcuts-overlay-enter 160ms ease-out;
+}
+
+/* --------------------------------------------------
+   Dialog
+-------------------------------------------------- */
+
+.keyboard-shortcuts {
+  width: min(100%, 36rem);
+  max-height: min(80vh, 42rem);
+  overflow: hidden;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: var(--radius-xl);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(139, 92, 246, 0.055),
+      transparent 40%
+    ),
+    var(--color-surface);
+  box-shadow:
+    0 2rem 6rem rgba(0, 0, 0, 0.52),
+    0 0 0 1px rgba(255, 255, 255, 0.02);
+  transform-origin: center;
+  animation: shortcuts-dialog-enter 180ms ease-out;
+}
+
+/* --------------------------------------------------
+   Header
+-------------------------------------------------- */
+
+.keyboard-shortcuts__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-6);
+  padding: var(--space-6);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.keyboard-shortcuts__eyebrow {
+  margin: 0 0 var(--space-2);
+  color: var(--color-accent);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.keyboard-shortcuts__header h2 {
+  margin: 0;
+  color: var(--color-text);
+  font-size: clamp(1.6rem, 4vw, 2rem);
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+}
+
+.keyboard-shortcuts__close {
+  display: inline-grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.keyboard-shortcuts__close svg {
+  width: 1rem;
+  height: 1rem;
+  fill: currentColor;
+}
+
+.keyboard-shortcuts__close:hover,
+.keyboard-shortcuts__close:focus-visible {
+  border-color: rgba(139, 92, 246, 0.42);
+  background: var(--color-accent-soft);
+  color: var(--color-text);
+  outline: none;
+  transform: rotate(4deg);
+}
+
+/* --------------------------------------------------
+   Shortcut List
+-------------------------------------------------- */
+
+.keyboard-shortcuts__list {
+  max-height: 28rem;
+  overflow-y: auto;
+  padding: var(--space-3) var(--space-5);
+  overscroll-behavior: contain;
+}
+
+.keyboard-shortcuts__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  min-height: 3.75rem;
+  padding: var(--space-3) var(--space-2);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.keyboard-shortcuts__item:last-child {
+  border-bottom: 0;
+}
+
+.keyboard-shortcuts__label {
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.keyboard-shortcuts__keys {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-2);
+}
+
+.keyboard-shortcuts__keys > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.keyboard-shortcuts__keys small {
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+}
+
+.keyboard-shortcuts kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.8rem;
+  min-height: 1.65rem;
+  padding: 0.22rem 0.42rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.35rem;
+  background: var(--color-surface-strong);
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  line-height: 1;
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.04);
+}
+
+/* --------------------------------------------------
+   Footer
+-------------------------------------------------- */
+
+.keyboard-shortcuts__footer {
+  padding: var(--space-4) var(--space-6);
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* --------------------------------------------------
+   Animations
+-------------------------------------------------- */
+
+@keyframes shortcuts-overlay-enter {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes shortcuts-dialog-enter {
+  from {
+    opacity: 0;
+    transform: translateY(0.5rem) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* --------------------------------------------------
+   Mobile
+-------------------------------------------------- */
+
+@media (max-width: 40rem) {
+  .keyboard-shortcuts__overlay {
+    align-items: end;
+    padding: var(--space-3);
+  }
+
+  .keyboard-shortcuts {
+    width: 100%;
+    max-height: calc(100dvh - 1.5rem);
+    border-radius: var(--radius-lg);
+  }
+
+  .keyboard-shortcuts__header {
+    padding: var(--space-5);
+  }
+
+  .keyboard-shortcuts__list {
+    max-height: calc(100dvh - 13rem);
+    padding-inline: var(--space-4);
+  }
+
+  .keyboard-shortcuts__item {
+    align-items: flex-start;
+    gap: var(--space-4);
+  }
+
+  .keyboard-shortcuts__keys {
+    max-width: 12rem;
+  }
+
+  .keyboard-shortcuts__footer {
+    padding-inline: var(--space-5);
+  }
+}
+
+/* --------------------------------------------------
+   Reduced Motion
+-------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .keyboard-shortcuts__overlay,
+  .keyboard-shortcuts,
+  .keyboard-shortcuts__close {
+    animation: none;
+    transition: none;
+  }
+
+  .keyboard-shortcuts__close:hover,
+  .keyboard-shortcuts__close:focus-visible {
+    transform: none;
+  }
+}

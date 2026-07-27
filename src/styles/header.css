@@ -1,0 +1,253 @@
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  padding: var(--space-4) 0;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition:
+    background-color var(--transition-base),
+    border-color var(--transition-base),
+    box-shadow var(--transition-base),
+    backdrop-filter var(--transition-base);
+}
+
+.site-header.is-scrolled {
+  background: var(--color-header-scrolled);
+  border-bottom-color: var(--color-border);
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  position: relative;
+}
+
+.brand {
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+
+.resume-link{
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  color: var(--color-text);
+  padding: 0.625rem 0.95rem;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.theme-toggle,
+.menu-toggle{
+    inline-size:2.5rem;
+    block-size:2.5rem;
+    padding:0;
+    display:inline-grid;
+    place-items:center;
+}
+
+.theme-toggle svg,
+.menu-toggle svg{
+    width:18px;
+    height:18px;
+    fill:currentColor;
+}
+
+.theme-toggle:hover,
+.resume-link:hover,
+.menu-toggle:hover,
+.theme-toggle:focus-visible,
+.resume-link:focus-visible,
+.menu-toggle:focus-visible {
+  border-color: var(--color-accent);
+  outline:none;
+  box-shadow:0 0 0 3px var(--color-accent-soft);
+  transform: translateY(-1px);
+}
+
+.resume-link {
+  text-decoration: none;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+.site-nav {
+  margin-left: auto;
+}
+
+.site-nav ul {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-size: var(--text-sm);
+  transition: color var(--transition-fast);
+}
+
+.site-nav__link {
+  position: relative;
+  display: inline-flex;
+  padding: 0.35rem 0;
+}
+
+.site-nav__link::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -0.35rem;
+  left: 0;
+  height: 2px;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--transition-fast);
+}
+
+.site-nav__link--active {
+  color: var(--color-text);
+}
+
+.site-nav__link--active::after {
+  transform: scaleX(1);
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  color: var(--color-text);
+  outline: none;
+}
+
+.command-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: 2.5rem;
+  padding: 0.5rem 0.7rem 0.5rem 0.85rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast),
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.command-trigger:hover,
+.command-trigger:focus-visible {
+  border-color: rgba(139, 92, 246, 0.42);
+  background: var(--color-accent-soft);
+  color: var(--color-text);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.08);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.command-trigger__label {
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+
+.command-trigger__shortcut {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.command-trigger__shortcut kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.35rem;
+  min-height: 1.25rem;
+  padding: 0.1rem 0.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.3rem;
+  background: var(--color-surface-strong);
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  line-height: 1;
+}
+
+@media (max-width: 48rem) {
+  .header-inner {
+    flex-wrap: wrap;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  .site-nav {
+    display: none;
+    width: 100%;
+    order: 3;
+    margin-left: 0;
+    margin-top: var(--space-3);
+    }
+
+    
+
+    .site-nav.is-open {
+    display: block;
+    }
+  
+
+  .site-nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--space-4);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-md);
+  }
+
+  .site-nav__link {
+  width: 100%;
+  padding: 0.5rem 0;
+}
+
+.site-nav__link::after {
+  right: auto;
+  bottom: 0.15rem;
+  width: 2rem;
+}
+}

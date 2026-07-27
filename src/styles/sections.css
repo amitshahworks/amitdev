@@ -1,0 +1,50 @@
+/* --------------------------------------------------
+   Shared Section Layout
+-------------------------------------------------- */
+
+.section {
+  padding: var(--space-24) 0;
+}
+
+.section-heading {
+  max-width: 42rem;
+  margin-bottom: var(--space-16);
+}
+
+.section-eyebrow {
+  margin-bottom: var(--space-4);
+
+  color: var(--color-accent);
+
+  font-size: var(--text-xs);
+
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+}
+
+.section-title {
+  margin: 0;
+
+  font-size: clamp(2.5rem, 5vw, 4rem);
+
+  line-height: 1.05;
+
+  font-weight: 700;
+
+  color: var(--color-text);
+}
+
+.section-description {
+  margin-top: var(--space-6);
+
+  max-width: 38rem;
+
+  color: var(--color-text-muted);
+
+  font-size: var(--text-lg);
+
+  line-height: 1.8;
+}

@@ -1,0 +1,227 @@
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: calc(100vh - 5rem);
+  padding: 3rem 0 6rem;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -14rem;
+  left: 50%;
+  width: 46rem;
+  height: 46rem;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(139, 92, 246, 0.11) 0%,
+    rgba(139, 92, 246, 0.045) 38%,
+    transparent 72%
+  );
+  transform: translateX(-78%);
+  pointer-events: none;
+}
+
+.hero__container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.hero__content {
+  width: 100%;
+  max-width: 62rem;
+}
+
+.hero__eyebrow {
+  margin: 0 0 var(--space-4);
+  color: var(--color-accent);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hero__title {
+  margin: 0;
+  max-width: 60rem;
+  color: var(--color-text);
+  font-size: clamp(3.25rem, 6.8vw, 5.8rem);
+  line-height: 1;
+  letter-spacing: -0.055em;
+}
+
+.hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-3);
+  margin: var(--space-5) 0 0;
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+.hero__meta > span[aria-hidden="true"] {
+  color: var(--color-text-muted);
+}
+
+.hero__description {
+  max-width: 48rem;
+  margin: var(--space-6) 0 0;
+  color: var(--color-text-muted);
+  font-size: var(--text-base);
+  line-height: 1.8;
+  opacity: 65%;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  min-height: 3rem;
+  padding: 0.85rem 1.4rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast),
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.button span {
+  transition: transform var(--transition-fast);
+}
+
+.button:hover,
+.button:focus-visible {
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+.button:hover span,
+.button:focus-visible span {
+  transform: translate(2px, -2px);
+}
+
+.button:focus-visible {
+  outline: 3px solid var(--color-accent-soft);
+  outline-offset: 4px;
+}
+
+.button--primary {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+  color: #ffffff;
+}
+
+.button--primary:hover,
+.button--primary:focus-visible {
+  background: var(--color-accent-strong);
+}
+
+.button--secondary {
+  background: transparent;
+}
+
+.button--secondary:hover,
+.button--secondary:focus-visible {
+  background: var(--color-accent-soft);
+}
+
+@media (max-width: 64rem) {
+  .hero {
+    min-height: auto;
+    padding: var(--space-20) 0;
+  }
+
+  .hero__content {
+    max-width: 52rem;
+  }
+}
+
+@media (max-width: 48rem) {
+  .hero {
+    padding: var(--space-16) 0;
+  }
+
+  .hero::before {
+    top: -10rem;
+    left: 0;
+    width: 34rem;
+    height: 34rem;
+    transform: translateX(-45%);
+  }
+
+  .hero__content {
+    max-width: 100%;
+  }
+
+  .hero__title {
+    max-width: none;
+    font-size: clamp(2.9rem, 12vw, 4.2rem);
+  }
+
+  .hero__meta {
+    display: grid;
+    gap: var(--space-1);
+  }
+
+  .hero__meta > span[aria-hidden="true"] {
+    display: none;
+  }
+
+  .hero__description {
+    max-width: 100%;
+  }
+
+  .hero__actions {
+    align-items: stretch;
+  }
+
+  .button {
+    flex: 1;
+  }
+}
+
+@media (max-width: 30rem) {
+  .hero__actions {
+    flex-direction: column;
+  }
+
+  .button {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button,
+  .button span {
+    transition: none;
+  }
+
+  .button:hover,
+  .button:focus-visible {
+    transform: none;
+  }
+}

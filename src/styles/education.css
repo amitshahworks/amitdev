@@ -1,0 +1,237 @@
+.education {
+  padding: clamp(4.5rem, 7vw, 6rem) 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.education__header {
+  max-width: 56rem;
+  margin-bottom: var(--space-10);
+}
+
+.education__eyebrow {
+  margin: 0 0 var(--space-6);
+  color: var(--color-accent);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.education__title {
+  max-width: 46rem;
+  margin: 0;
+  color: var(--color-text);
+  font-size: clamp(2.5rem, 4.3vw, 3.9rem);
+  line-height: 1.05;
+  letter-spacing: -0.05em;
+}
+
+.education__description {
+  max-width: 42rem;
+  margin: var(--space-5) 0 0;
+  color: var(--color-text-muted);
+  font-size: var(--text-base);
+  line-height: 1.7;
+}
+
+/* --------------------------------------------------
+   Degree Card
+-------------------------------------------------- */
+
+.education__card {
+  padding: 2rem 2.1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(139, 92, 246, 0.04),
+      transparent 55%
+    ),
+    var(--color-surface);
+}
+.education__top {
+  display: grid;
+  grid-template-columns:1fr auto;
+  gap:4rem;
+}
+
+.education__degree {
+  margin: 0;
+  color: var(--color-accent);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.education__top h3 {
+  margin: var(--space-3) 0 0;
+  color: var(--color-text);
+  font-size: clamp(1.55rem, 2.5vw, 2rem);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+.education__college{
+    color:var(--color-text);
+    opacity:.88;
+    font-size:.96rem;
+    margin-top:.9rem;
+}
+
+.education__university{
+    margin-top:.35rem;
+    color:var(--color-text-muted);
+    opacity:.62;
+    font-size:.92rem;
+}
+
+.education__meta {
+  display: flex;
+  flex-shrink: 0;
+  gap: var(--space-8);
+}
+
+.education__meta span {
+  display: block;
+  margin-bottom: var(--space-2);
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+}
+
+.education__meta strong {
+  color: var(--color-text);
+  font-size: 1.2rem;
+  line-height: 1.2;
+}
+
+/* --------------------------------------------------
+   Supporting Content
+-------------------------------------------------- */
+
+.education__content {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: clamp(2.5rem, 6vw, 5rem);
+  margin-top: var(--space-8);
+}
+
+.education__content h4 {
+  margin: 0 0 var(--space-4);
+  color: var(--color-text);
+  font-size: var(--text-base);
+}
+
+/* Coursework */
+
+.education__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.education__chips span {
+  padding: 0.42rem 0.68rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: rgba(139, 92, 246, 0.025);
+  color: var(--color-text-muted);
+  font-size: .74rem;
+  line-height: 1.35;
+}
+
+/* Highlights */
+
+.education__highlights {
+  display: grid;
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.education__highlights li {
+  position: relative;
+  padding-left: var(--space-5);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  line-height: 1.7;
+}
+
+.education__highlights li::before {
+  content: "";
+  position: absolute;
+  top: 0.6rem;
+  left: 0;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+/* Footer statement */
+
+.education__footer {
+  max-width: 54rem;
+  margin: var(--space-8) auto 0;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  font-style: italic;
+  line-height: 1.65;
+  text-align: center;
+}
+
+/* --------------------------------------------------
+   Tablet
+-------------------------------------------------- */
+
+@media (max-width: 56rem) {
+  .education__top {
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .education__content {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+}
+
+/* --------------------------------------------------
+   Mobile
+-------------------------------------------------- */
+
+@media (max-width: 40rem) {
+  .education {
+    padding: var(--space-16) 0;
+  }
+
+  .education__header {
+    margin-bottom: var(--space-8);
+  }
+
+  .education__title {
+    max-width: none;
+    font-size: clamp(2.4rem, 10vw, 3.4rem);
+  }
+
+  .education__card {
+    padding: var(--space-5);
+  }
+
+  .education__meta {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    gap: var(--space-6);
+  }
+
+  .education__content {
+    margin-top: var(--space-8);
+  }
+
+  .education__footer {
+    margin-top: var(--space-6);
+    text-align: left;
+  }
+}

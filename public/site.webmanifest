@@ -1,0 +1,16 @@
+{
+  "name": "Amit Shah Portfolio",
+  "short_name": "Amit Shah",
+  "description": "Portfolio of Amit Shah, a backend-focused software engineer.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050816",
+  "theme_color": "#050816",
+  "icons": [
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
