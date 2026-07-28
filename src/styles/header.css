@@ -275,19 +275,20 @@
   }
 
   .command-trigger {
-    min-width: auto;
-    min-height: 2.5rem;
-    padding: 0.45rem 0.55rem;
-    gap: 0;
-  }
+  min-height: 2.5rem;
+  padding: 0.5rem 0.9rem;
+  gap: 0;
+}
 
-  .command-trigger__label {
-    display: none;
-  }
+.command-trigger__label {
+  display: inline;
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
 
-  .command-trigger__shortcut {
-    gap: 0.15rem;
-  }
+.command-trigger__shortcut {
+  display: none;
+}
 
   .command-trigger__shortcut kbd {
     min-width: 1.2rem;
@@ -357,13 +358,12 @@
     letter-spacing: 0.15em;
   }
 
-  .command-trigger__shortcut kbd:first-child {
-    display: none;
+  .command-trigger {
+    padding: 0.45rem 0.75rem;
   }
 
-  .command-trigger {
-    width: 2.5rem;
-    justify-content: center;
+  .command-trigger__label {
+    font-size: 0.8rem;
   }
 }
 
