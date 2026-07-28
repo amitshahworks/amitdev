@@ -346,6 +346,9 @@
     left: 0.5rem;
     width: 2rem;
   }
+ .command-palette__footer {
+    display: none;
+  }
 }
 
 /* --------------------------------------------------
