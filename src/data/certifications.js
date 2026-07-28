@@ -22,13 +22,6 @@ export const certifications = [
     url: '',
   },
   {
-    id: 'ibm-python',
-    provider: 'IBM',
-    title: 'Data Analysis Using Python',
-    issued: '2025',
-    url: '',
-  },
-  {
     id: 'aws-foundations',
     provider: 'AWS Academy',
     title: 'Cloud Foundations',
