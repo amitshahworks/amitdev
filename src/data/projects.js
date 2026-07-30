@@ -13,7 +13,7 @@ export const projects = [
       'A production-oriented CRM platform for managing organizations, users, leads, follow-ups, notifications, and role-based workflows.',
     image: '/projects/nexora.webp',
     imageAlt: 'NEXORA multi-tenant SaaS CRM dashboard',
-    status: 'In Development',
+    status: 'Live •  Actively Developing',
     highlights: ['Multi-Tenancy', 'RBAC', 'Secure Authentication'],
     technologies: [
       'React',
@@ -22,7 +22,7 @@ export const projects = [
       'Prisma',
     ],
     liveUrl: 'https://nexora-admission-crm.vercel.app',
-    repositoryUrl: null,
+    repositoryUrl: 'https://github.com/amitshahworks/nexora',
   },
   {
     id: 'ai-interview-trainer',
@@ -61,6 +61,6 @@ export const projects = [
       'Docker',
     ],
     liveUrl: null,
-    repositoryUrl: null,
+    repositoryUrl: 'https://github.com/amitshahworks/DispatchIQ',
   },
 ]
